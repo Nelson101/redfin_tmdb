@@ -70,15 +70,17 @@ class _MovieSearchPageState extends ConsumerState<MovieSearchPage> {
               ref.read(searchTypeProvider.notifier).state = SearchType.history;
             },
             onFieldSubmitted: (val) {
-              // add search data into history
-              ref.read(searchHistoryProvider.notifier).addSearchHistory(val);
-              ref.read(searchMovieProvider.notifier).getSearchMovieList(
-                    val,
-                    isRefresh: true,
-                  );
+              if (val.isNotEmpty) {
+                // add search data into history
+                ref.read(searchHistoryProvider.notifier).addSearchHistory(val);
+                ref.read(searchMovieProvider.notifier).getSearchMovieList(
+                      val,
+                      isRefresh: true,
+                    );
 
-              // change to movie page
-              ref.read(searchTypeProvider.notifier).state = SearchType.movie;
+                // change to movie page
+                ref.read(searchTypeProvider.notifier).state = SearchType.movie;
+              }
             },
             decoration: InputDecoration(
               isDense: true,

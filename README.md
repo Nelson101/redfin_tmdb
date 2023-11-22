@@ -21,6 +21,7 @@ flutter run --flavor=staging
 ```
 flutter build apk --split-per-abi --release --flavor=production
 flutter build apk --split-per-abi --release --flavor=staging
+```
 
 ---
 
@@ -36,8 +37,3 @@ dart run flutter_native_splash:create
 ```
 
 ---
-
-• Filter movies by genres.
-• Sort movies by latest release date.
-• Show movie details (movie name, release date, overview, trailers, etc)
-• View pager to show movie poster (vertical scroll direction)
